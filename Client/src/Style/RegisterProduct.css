@@ -1,0 +1,36 @@
+.maindiv-registerproduct{
+    width: 100%;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.maindiv-registerproduct form{
+    padding: 30px;
+    background-color: #007bff;
+    border-radius: 5px;
+    margin-top: 20px;
+  
+}
+.maindiv-registerproduct form input{
+    width: 100%;
+    height: 30px;
+    /* margin: 10px; */
+    /* padding: 5px; */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+.maindiv-registerproduct form button{
+    width: 100%;
+    height: 30px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #00fe59;
+    color: white;
+    cursor: pointer;
+}
+.maindiv-registerproduct form input:focus{
+    outline:none
+}
