@@ -11,7 +11,7 @@ const Card = (props) => {
                     <p className="card-text">{props.data.description.slice(0,50)}...</p>
                     <p className="card-text">Price: ${props.data.price}</p>
                     {/* <p className="card-text">Category: {props.data.category}</p> */}
-                    <Link to={`/product/${props.data._id}`} className="btn btn-primary">View Details</Link>
+                    <Link to={`/detail/${props.data._id}`} className="btn btn-primary">View Details</Link>
                 </div>
             </div>
         </>

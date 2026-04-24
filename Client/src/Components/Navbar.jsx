@@ -15,13 +15,12 @@ const Navbar = () => {
                             <li className="nav-item">
                                 <Link to='/show-products' className="nav-link active" aria-current="page" >Products</Link>
                             </li>
-                          
-                            
-                            
+                            <li className="nav-item">
+                                <Link to='/activeusers' className="nav-link active" aria-current="page" >Active users</Link>
+                            </li>
                         </ul>
                         <form className="d-flex" role="search">
-                                <Link to='/register-product' className="btn btn-outline-success" type="submit">Add Product</Link>
-                            
+                                <Link to='/register-product' className="btn btn-outline-success" type="submit">Add Product</Link>  
                         </form>
                     </div>
                 </div>
