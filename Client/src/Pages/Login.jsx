@@ -11,6 +11,9 @@ const Login = () => {
             let result = await axios.post('http://localhost:8000/api/user/login', { email, password })
             alert('Login successful')
             localStorage.setItem('token',result.data.token)
+            localStorage.setItem('role',result.data.role)
+            window.location.href='/show-products'
+           
         } catch (error) {
             console.log(error)
         }

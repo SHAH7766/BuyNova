@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import Card from '../Components/Card'
+import { motion } from "motion/react"
 
 const Detail = () => {
     const [data, setData] = useState({})
@@ -17,10 +18,10 @@ const Detail = () => {
             console.log(error)
         }
     }
-    // console.log(data)
     return (
         <>
-            <div className='container'>
+            <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5
+            }} className='container'>
                 <div className='row mt-5'>
                     <div className='col-lg-6'>
                         <img className='img-fluid w-75 rounded-5 h-75' src={`http://localhost:8000/uploads/${data.image}`} />
@@ -34,7 +35,7 @@ const Detail = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </motion.div>
         </>
     )
 }

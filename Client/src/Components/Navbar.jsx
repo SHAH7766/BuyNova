@@ -2,6 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const Navbar = () => {
+    const token = localStorage.getItem('token');
+    const role = localStorage.getItem('role')
     return (
         <div>
             <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -15,12 +17,31 @@ const Navbar = () => {
                             <li className="nav-item">
                                 <Link to='/show-products' className="nav-link active" aria-current="page" >Products</Link>
                             </li>
-                            <li className="nav-item">
-                                <Link to='/activeusers' className="nav-link active" aria-current="page" >Active users</Link>
-                            </li>
+                            {role === 'admin' && (
+                                <>
+                                    <li className="nav-item">
+                                        <Link to='/activeusers' className="nav-link active" aria-current="page" >Active Users</Link>
+                                    </li>
+                                    <li className="nav-item">
+                                        <Link to='/allproducts' className="nav-link active" aria-current="page" >Active Products</Link>
+                                    </li>
+                                </>
+
+                            )}
                         </ul>
                         <form className="d-flex" role="search">
-                                <Link to='/register-product' className="btn btn-outline-success" type="submit">Add Product</Link>  
+                            {role === 'admin' && (
+                                <Link to='/register-product' className="btn btn-outline-success" type="submit">Add Product</Link>
+                            )}
+                            {!token ? (
+                                <Link to='/login' className="btn btn-success" type="submit">Login</Link>
+                            ) : (
+                                <button  onClick={() => {
+                                    localStorage.removeItem('token');
+                                    localStorage.removeItem('role');
+                                    window.location.reload();
+                                }} className="btn btn-danger mx-3" type="submit">Logout</button>
+                            )}
                         </form>
                     </div>
                 </div>

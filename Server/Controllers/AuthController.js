@@ -37,7 +37,7 @@ export const LoginUser = async (req, res) => {
             if (IsMatched) {
                 await LoginEmail(email, user.username)
                 const token = await jwt.sign({id:user._id,role:user.role,email:user.email},process.env.SECRET_KEY,{expiresIn:"1h"})
-                return res.status(200).json({ message: "Login Successfull", token })
+                return res.status(200).json({ message: "Login Successfull", token,role:user.role })
             } else {
                 return res.status(400).json({ message: "Invalid Credentials" })
             }
